@@ -3,7 +3,7 @@
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
 
 /**
@@ -11,7 +11,14 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  sum = 0;
+  numbers.forEach((number) => {
+    if (typeof number !== "number") {
+      throw new Error("All elements must be numbers");
+    }
+    sum += number;
+  });
+  return sum;
 }
 
 /**
@@ -19,7 +26,11 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  return mean = getSum(numbers) / getLength(numbers);
+  if (isNaN(mean)) {
+    throw new Error("Mean is not a number");
+  }
+  return mean.toFixed(2);
 }
 
 /**
@@ -27,7 +38,16 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  min = 0;
+  numbers.forEach((number) => {
+    if (typeof number !== "number") {
+      throw new Error("All elements must be numbers");
+    }
+    if (min === 0 || number < min) {
+      min = number;
+    }
+  });
+  return min;
 }
 
 /**
@@ -35,15 +55,23 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  max = 0;
+  numbers.forEach((number) => {
+    if (typeof number !== "number") {
+      throw new Error("All elements must be numbers");
+    }
+    if (max === 0 || number > max) {
+      max = number;
+    }
+  });
+  return max;
 }
-
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  return getMax(numbers) - getMin(numbers);
 }
 
 /**
@@ -51,7 +79,13 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  evens = []
+  numbers.forEach((number) => {
+    if (number % 2 === 0) {
+      evens.push(number);
+    }
+  });
+  return evens;
 }
 
 /**
@@ -59,7 +93,13 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  odds = []
+  numbers.forEach((number) => {
+    if (number % 2 !== 0) {
+      odds.push(number);
+    }
+  });
+  return odds;
 }
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
